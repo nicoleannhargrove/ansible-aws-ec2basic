@@ -34,7 +34,7 @@ pipeline {
 
        stage ('Pull Ansible Playbook') {
            steps {
-               ansiblePlaybook(credentialsId: 'private_key', inventory: 'inventory/aws_ec2.yml', playbook: 'ansibleec2               basics.yml')
+               ansiblePlaybook(credentialsId: 'private_key', inventory: 'inventory/aws_ec2.yml', playbook: 'ec2-basics               .yml')
            }
          }    		
 	stage('Build Complete') {
