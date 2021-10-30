@@ -1,0 +1,22 @@
+- name:  Ansible Setup
+  hosts:  localhost
+  vars_files:
+          - /Users/nicoleannhargrove/vault.yml
+  tasks:
+    - name:  launching AWS instance using Ansible
+      community.aws.ec2_instance:
+        key_name:  "aws_ec2_ansible"
+        name: "ansible-webserver1"
+        instance_type:  "t2.micro"
+        image:
+          id: "ami-02e136e904f3da870"
+        region:  "us-east-1"
+        network:
+          assign_public_ip: yes
+        tags:
+          Name: ansiblewebserver1
+        wait: yes
+        wait_timeout: 300
+        aws_access_key: "{{ accesskey }}"
+        aws_secret_key: "{{ secretkey }}"
+
